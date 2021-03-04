@@ -104,7 +104,7 @@ public class DAO {
 	}
 	
 	public ArrayList<Usuario> rankearUsuario (){
-		String sql = "SELECT * FROM areadetestes04.usuario ORDER BY pontos";
+		String sql = "SELECT * FROM areadetestes04.usuario ORDER BY pontos DESC";
 		ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
 		
 		try {

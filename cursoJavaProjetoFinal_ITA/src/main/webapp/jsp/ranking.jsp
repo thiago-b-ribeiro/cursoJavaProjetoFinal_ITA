@@ -29,9 +29,10 @@
 					
 					</tr>
 					
-					<c:forEach var="usuarios" items="${usuarios}">
+					<c:forEach var="usuarios" items="${usuarios}" varStatus="contador">
+						
 						<tr>
-							<td></td>
+							<td>${contador.count}</td>						
 							<td>${usuarios.nome}</td>
 							<td>${usuarios.login}</td>
 							<td>${usuarios.pontos}</td>				
