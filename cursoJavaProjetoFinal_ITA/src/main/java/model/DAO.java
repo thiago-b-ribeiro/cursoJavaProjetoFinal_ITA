@@ -82,6 +82,27 @@ public class DAO {
 		}
 	}
 	
+	public void alterarUsuario(Usuario usuario) {
+		String sql = "UPDATE areadetestes04.usuario SET login=?, email=?, nome=?, senha=?, pontos=? WHERE login=?";
+		
+		try {
+			Connection con = conectar();
+			
+			PreparedStatement pst = con.prepareStatement(sql);
+			pst.setString(1, usuario.getLogin());
+			pst.setString(2, usuario.getEmail());
+			pst.setString(3, usuario.getNome());
+			pst.setString(4, usuario.getSenha());
+			pst.setInt(5, usuario.getPontos());
+			pst.setString(6, usuario.getLogin());
+			
+			pst.executeUpdate();
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	}
+	
 	public ArrayList<Usuario> rankearUsuario (){
 		String sql = "SELECT * FROM areadetestes04.usuario ORDER BY pontos";
 		ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
@@ -113,6 +134,7 @@ public class DAO {
 		String sql = "INSERT INTO areadetestes04.topico(titulo, conteudo, topico_login) VALUES (?,?,?)";
 		
 		try {
+			
 			Connection con = conectar();
 			
 			PreparedStatement pst = con.prepareStatement(sql);

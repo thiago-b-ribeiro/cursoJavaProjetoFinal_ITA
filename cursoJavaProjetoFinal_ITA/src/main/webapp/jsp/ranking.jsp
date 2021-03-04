@@ -10,7 +10,7 @@
 		<title>Projeto Final - Java Avançado</title>
 		
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style01.css">
-	
+		<script type="text/javascript" src="${pageContext.request.contextPath}/js/chamaServlet.js"></script>
 	</head>
 
 	<body>
@@ -40,9 +40,7 @@
 			
 				</table>
 				
-				<form action="consultarTopicos" method="post">
-					<input type ="submit" value="Tópicos">
-				</form>
+				<button class="button410px"onClick="chamaServlet('consultarTopicos')">Tópicos</button>
 				
 			</div>
 		

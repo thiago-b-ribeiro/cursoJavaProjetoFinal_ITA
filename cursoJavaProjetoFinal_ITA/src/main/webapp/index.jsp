@@ -15,7 +15,7 @@
 
 	<body>
 		
-		<div class="container02">
+		<div class="container01">
 		
 			<h1>${falhaAcesso}</h1>
 			
@@ -28,7 +28,7 @@
 					</label>
 					
 					<label for="senha">Senha: 
-						<input name="senha" type="text">
+						<input name="senha" type="password">
 					</label>
 					
 					<br>

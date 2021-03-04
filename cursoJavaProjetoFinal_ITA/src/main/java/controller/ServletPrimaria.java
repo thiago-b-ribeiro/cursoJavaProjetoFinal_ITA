@@ -25,34 +25,36 @@ public class ServletPrimaria extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)	throws ServletException, IOException {
-
-		switch (request.getServletPath()) {
-		case "/cadastrarUsuario":
-			cadastrarUsuario(request, response);
-			break;
-		case "/validarUsuario":
+		
+		if (request.getServletPath().equals("/validarUsuario")) {
 			validarUsuario(request, response);
-			break;
-		case "/inserirTopico":
-			inserirTopico(request, response);
-			break;
-		case "/consultarTopicos":
-			consultarTopicos(request, response);
-			break;
-		case "/inserirComentario":
-			inserirComentario(request, response);
-			break;
-		case "/rankearUsuarios":
-			rankearUsuarios(request, response);
-		break;
+		} else {
+			doGet(request, response);
 		}
+		
 	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		switch (request.getServletPath()) {
-		case "/exibirTopico":
-			exibirTopico(request, response);
-			break;
+			case "/exibirTopico":
+				exibirTopico(request, response);
+				break;
+			case "/rankearUsuarios":
+				rankearUsuarios(request, response);
+				break;
+			case "/consultarTopicos":
+				consultarTopicos(request, response);
+				break;
+			case "/cadastrarUsuario":
+				cadastrarUsuario(request, response);
+				break;
+			case "/inserirTopico":
+				inserirTopico(request, response);
+				break;
+			case "/inserirComentario":
+				inserirComentario(request, response);
+				break;
 		}		
 	}
 
@@ -66,6 +68,7 @@ public class ServletPrimaria extends HttpServlet {
 		if (new Usuario().validarUsuario(request.getParameter("login"), request.getParameter("senha"))) {
 			request.getSession().setAttribute("login", request.getParameter("login"));
 			request.getRequestDispatcher("consultarTopicos").forward(request, response);
+//			response.sendRedirect("jsp/topicos.jsp");
 		} else {
 			request.setAttribute("falhaAcesso", "Login/senha estão errados ou não foram cadastrados.");
 			response.sendRedirect("index.jsp");
@@ -75,6 +78,10 @@ public class ServletPrimaria extends HttpServlet {
 	protected void inserirTopico(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Topico topico = new Topico(request.getParameter("titulo"), request.getParameter("conteudo"), request.getSession().getAttribute("login"));
 		dao.inserirTopico(topico);
+		
+		Usuario usuario = new Usuario();
+		usuario.atualizarPontos((String)(request.getSession().getAttribute("login")), 10);
+		
 		consultarTopicos(request, response);
 	}
 
@@ -82,6 +89,7 @@ public class ServletPrimaria extends HttpServlet {
 		ArrayList<Topico> topicos = dao.consultarTopicos(request.getSession().getAttribute("login"));
 		request.setAttribute("topicos", topicos);		
 		request.getRequestDispatcher("jsp/topicos.jsp").forward(request, response);
+//		response.sendRedirect("jsp/topicos.jsp");
 	}
 	
 	protected void exibirTopico (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
@@ -94,6 +102,10 @@ public class ServletPrimaria extends HttpServlet {
 	protected void inserirComentario (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Comentario comentario = new Comentario(request.getParameter("comentario"), request.getSession().getAttribute("login"), Integer.parseInt(request.getParameter("idTopico")));
 		dao.inserirComentario(comentario);
+		
+		Usuario usuario = new Usuario();
+		usuario.atualizarPontos((String)(request.getSession().getAttribute("login")), 3);
+		
 		exibirTopico(request, response);
 	}
 	

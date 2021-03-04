@@ -79,5 +79,20 @@ public class Usuario {
 			return false;
 		}
 	}
+	
+	public void atualizarPontos (String login, int pontos) {
+		Usuario usuario = new Usuario();
+		DAO dao = new DAO();
+		
+		try {
+			usuario = dao.consultarUsuario(login);
+			usuario.setPontos(usuario.getPontos() + pontos);
+			dao.alterarUsuario(usuario);
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+
+	}
 
 }

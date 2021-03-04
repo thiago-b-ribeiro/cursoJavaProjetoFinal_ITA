@@ -10,6 +10,7 @@
 		<title>Projeto Final - Java Avançado</title>
 		
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style01.css">
+		<script type="text/javascript" src="${pageContext.request.contextPath}/js/chamaServlet.js"></script>
 	
 	</head>
 
@@ -17,7 +18,7 @@
 
 		<div class="container01">
 		
-			<div class="lista">
+			<div class="box01">
 			
 				<table>
 					
@@ -47,11 +48,10 @@
 				
 				<br>
 				
-				<form action="rankearUsuarios" method="post">
-					<input type="submit" value="Ranking"/>
-				</form>
-				
-				<button type="button" onClick="location.href='jsp/insereTopicos.jsp'">Inserir tópico</button>
+        <div class="divButton">
+          <button onClick="chamaServlet('rankearUsuarios')">Ranking</button>
+          <button type="button" onClick="location.href='jsp/insereTopicos.jsp'">Inserir tópico</button>
+        </div>
 				
 			</div>
 		

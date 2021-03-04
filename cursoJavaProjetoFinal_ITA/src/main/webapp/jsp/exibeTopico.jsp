@@ -10,14 +10,14 @@
 		<title>Projeto Final - Java Avançado</title>
 		
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style01.css">
-	
+		<script type="text/javascript" src="${pageContext.request.contextPath}/js/chamaServlet.js"></script>
 	</head>
 
 	<body>
 	
 		<div class="container02">
 		
-			<div class="box02">
+			<div>
 			
 				<h1>${topicos.titulo}</h1>
 				<h3>${topicos.topicoLogin}</h3>	
@@ -28,7 +28,7 @@
 			
 			<br>
 			
-			<div class="box03">
+			<div class="box01">
 			
 				<h2>Comentários:</h2>
 			
@@ -42,25 +42,21 @@
 			
 			<br>
 			
-			<div class="box04">
+			<form action="inserirComentario" method="post" id="inserirComentario">
+			
+				<label for="comentario" style="text-align:left;"> Insira seu comentário: <br>
+					<input name="comentario" type="text" style="width:325px;">
+				</label>
 				
-				<form action="inserirComentario" method="post">
-				
-					<label for="comentario"> Insira seu comentário: <br>
-						<input name="comentario" type="text">
-					</label>
+				<input type="hidden" name="idTopico" value="${topicos.idTopico}">
 					
-					<input type="hidden" name="idTopico" value="${topicos.idTopico}">
-					
-					<input type="submit" value="Enviar"/>
-					
-				</form>
-				
-				<form action="consultarTopicos" method="post">
-					<input type="submit" value="Tópicos">
-				</form>
-					
-			</div>
+				<input type="submit" value="Enviar"/>
+						
+			</form>
+			
+			<button class="button410px" onClick="chamaServlet('consultarTopicos')">Tópicos</button>
+			
+			
 		
 		</div>
 	

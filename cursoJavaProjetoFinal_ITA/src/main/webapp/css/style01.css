@@ -29,49 +29,24 @@ body{
 	height: 250px;
 	background: #fff;
 	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 5px;
+}
+
+.box02 {
+	width: 100vw;
+	background: #fff;
+	display: flex;
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
 }
 
-.box02 {
-	width: 30vw;
-	height: 30vh;
-	background: #fff;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: left;
-}
-
-.box03 {
-	width: 30vw;
-	height: 30vh;
-	background: blue;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: left;
-}
-
-.box04 {
-	width: 30vw;
-	height: 30vh;
-	background: orange;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: left;
-}
-
-.lista {
-	width: 60vw;
-	height: 60vh;
-	background: #fff;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+table, td {
+	border: 1px solid black;
+	width:400px;
 }
 
 form {
@@ -79,12 +54,29 @@ form {
 }
 
 form, label {
-	display: block;
-  	padding: 5px;
-   	color: #FFF;
-  	text-align: right;
+  display: block;
+  padding: 5px;
+  color: #FFF;
+  text-align: right;
 }
 
 input {
   	display: inline-block;
+}
+
+#inserirComentario {
+  width: 400px;
+  background: #c0c0c0;
+  text-align: left;
+  display: flex;
+  flex-direction: row;
+}
+
+.button410px {
+	width:410px;
+}
+
+.divButton {
+  display: block;
+  text-align: right;
 }
