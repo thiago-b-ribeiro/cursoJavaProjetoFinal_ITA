@@ -13,7 +13,7 @@ public class DAO {
 	private String driver = "com.mysql.cj.jdbc.Driver";
 	private String url = "jdbc:mysql://127.0.0.1:3306/areadetestes04?Timezone=true&serverTimezone=UTC";
 	private String user = "root";
-	private String password = "Recomeco137!";
+	private String password = "*******";
 	
 	public DAO() {
 		// TODO Auto-generated constructor stub

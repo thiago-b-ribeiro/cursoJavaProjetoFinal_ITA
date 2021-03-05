@@ -20,7 +20,7 @@ public class TesteUsuarioDAO {
 		String driver = "com.mysql.cj.jdbc.Driver";
 		String url = "jdbc:mysql://127.0.0.1:3306/areadetestes04?Timezone=true&serverTimezone=UTC";
 		String user = "root";
-		String password = "Recomeco137!";
+		String password = "*******";
 		
 		jdt = new JdbcDatabaseTester(driver, url, user, password);
 		
