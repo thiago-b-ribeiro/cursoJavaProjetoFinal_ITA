@@ -34,7 +34,7 @@
 					</label>
 					
 					<label for="senha">Senha: 
-						<input name="senha" type="text">
+						<input name="senha" type="password">
 					</label>
 					
 					<input type="submit" value="Cadastrar"/>

@@ -24,14 +24,6 @@
 	    <version>5.7.0</version>
 	    <scope>test</scope>
 	</dependency>
-
-<!-- https://mvnrepository.com/artifact/dbunit/dbunit -->
-	<dependency>
-	    <groupId>dbunit</groupId>
-	    <artifactId>dbunit</artifactId>
-	    <version>2.2</version>
-	    <scope>test</scope>
-	</dependency>
 	
 <!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
 	<dependency>
@@ -39,7 +31,24 @@
 	    <artifactId>jstl</artifactId>
 	    <version>1.2</version>
 	</dependency>
+	
+<!-- Thanks for using https://jar-download.com -->
+	<dependency>
+		<groupId>org.dbunit</groupId>
+		<artifactId>dbunit</artifactId>
+		<version>2.5.3</version>
+	</dependency>
+	
+<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+	<dependency>
+	    <groupId>org.seleniumhq.selenium</groupId>
+	    <artifactId>selenium-java</artifactId>
+	    <version>3.141.59</version>
+	</dependency>
+
+	
 
 </dependencies>
+	
 	
 </project>
